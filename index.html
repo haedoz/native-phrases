@@ -2,10 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="원어민 회화">
   <meta name="theme-color" content="#1e1e2e">
   <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22%EC%8B%A4%EC%A0%84%20%EC%9B%90%EC%96%B4%EB%AF%BC%20%ED%91%9C%ED%98%84%20%EB%85%B8%ED%8A%B8%22%2C%22short_name%22%3A%22%EC%9B%90%EC%96%B4%EB%AF%BC%20%ED%9A%8C%ED%99%94%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231e1e2e%22%2C%22theme_color%22%3A%22%232563eb%22%7D">
@@ -92,7 +92,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+      padding: calc(6px + env(safe-area-inset-top, 0px)) 12px calc(8px + env(safe-area-inset-bottom, 0px));
       user-select: none;
       -webkit-user-select: none;
       transition: background 0.2s ease, color 0.2s ease;
@@ -489,16 +489,21 @@
     .card-scene {
       flex: 1;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-height: 0;
       margin-bottom: 8px;
     }
     .flashcard {
       width: 100%;
+      height: 100%;
+      max-height: 520px;
+      margin: auto 0;
       border-radius: var(--radius);
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       box-shadow: 0 4px 18px rgba(0,0,0,0.05);
-      padding: 14px 16px;
+      padding: 16px 16px 14px;
       cursor: pointer;
       transition: transform 0.12s ease;
       display: flex;
@@ -606,27 +611,27 @@
       padding: 8px 0;
     }
     .phrase-title {
-      font-size: 1.65rem;
+      font-size: clamp(1.85rem, 5.5vw, 2.25rem);
       font-weight: 800;
       color: var(--text);
       letter-spacing: -0.02em;
-      margin-bottom: 6px;
-      line-height: 1.25;
-    }
-    .phrase-reading {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-sub);
       margin-bottom: 8px;
       line-height: 1.25;
     }
+    .phrase-reading {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
     .phrase-situation {
-      font-size: 0.85rem;
+      font-size: 0.92rem;
       color: var(--primary);
       font-weight: 600;
       background: var(--primary-light);
       display: inline-block;
-      padding: 6px 12px;
+      padding: 7px 14px;
       border-radius: 8px;
       line-height: 1.3;
     }
